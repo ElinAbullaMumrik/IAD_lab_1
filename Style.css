@@ -1,0 +1,15 @@
+body {background-image: url(images/5.jpg)}
+body {background-size: cover}
+a {color:#000060; font-weight: bold;}
+a:hover {color:#ff0000; font-weight: bold; text-decoration:none}
+h1 {color: darkgreen; font-size:24px;text-align: center}
+h2 {color: darkgreen; font-size:16px}
+p {color: darkgreen; font-size:16px}
+table {
+    font-family: Sans-Serif;
+    font-size: 14px;
+    background: snow;
+    opacity: 0.9;
+    text-align: left;
+    border-radius: 10px;
+}
