@@ -12,10 +12,18 @@ table {
     opacity: 0.9;
     text-align: left;
     border-radius: 10px;
+    border-color: #000060;
 }
 .res {
     font-family: Sans-Serif;
     font-size: 16px;
     text-align: left;
     color: darkblue;
+}
+
+#ans {
+    border-collapse: collapse;
+    border-width: 5px;
+    font-size: 16px;
+    text-align: center;
 }

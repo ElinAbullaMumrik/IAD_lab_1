@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" lang="ru">
+<html lang="en, ru">
 <head>
     <meta charset="UTF-8">
     <title>Lab_1</title>
@@ -17,17 +17,17 @@
 <h1></h1>
 <table width="85%" border="0" align="center">
     <tr>
-        <td width="35%" height="400" align="center"><img src="images/4.jpg" opacity="1"></td>
+        <td width="35%" height="400" align="center"><img src="images/4.jpg"></td>
         <td width="25%">
             <table border="0" align="center" width="100%">
                 <tr>
                     <td>
-                        <form action=" " method="post" id = "values">
+                        <form action=" " method="post" id="form">
                             <p><b>Выберите Y</b></p>
                             <table border="0">
                                 <tr>
-                                    <select name="Y">
-                                        <option value="-4" >-4</option>
+                                    <select name="inputY">
+                                        <option value="-4">-4</option>
                                         <option value="-3">-3</option>
                                         <option value="-2">-2</option>
                                         <option value="-1">-1</option>
@@ -38,12 +38,6 @@
                                         <option value="4">4</option>
                                     </select>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <label class="error" id="labelY"></label>
-                                    </td>
-                                </tr>
-
                             </table>
                     </td>
                     <td>
@@ -51,7 +45,7 @@
                         <table border="0">
                             <tr>
                                 <td>
-                                    <select name="R", id="radioR">
+                                    <select name="inputR" id="radioR">
                                         <option value="1">1</option>
                                         <option value="1.5">1.5</option>
                                         <option value="2">2</option>
@@ -67,9 +61,15 @@
                 <tr>
                     <td colspan="2">
                         <p><b>Введите X (-3...3)</b></p>
-                        <p><input name="X" type="text" placeholder="-3...3" maxlength="9" id = "inputX"/></p>
-                        <p><input id = "Button" type="submit" value="Выбрать"></p></td>
+                        <p><input name="inputX" type="text" placeholder="-3...3" maxlength="9" id="inputX" value="0"/>
+                        </p>
+                        <p><input id="Button" type="submit" value="Выбрать"></p></td>
 
+                </tr>
+                <tr>
+                    <td>
+                        <label class="error" id="labelX"></label>
+                    </td>
                 </tr>
                 </form>
 
@@ -77,34 +77,14 @@
 
         </td>
         <td width="50%">
-            <table id = "ressultat">
-                <tr>
-                    <td>
-                        <h2 class="res">X</h2>
-                    </td>
-                    <td>
-                        <h2 class="res">Y</h2>
-                    </td>
-                    <td>
-                        <h2 class="res">R</h2>
-                    </td>
-                    <td>
-                        <h2 class="res">Result</h2>
-                    </td>
-                    <td>
-                        <h2 class="res">Time</h2>
-                    </td>
-                    <td>
-                        <h2 class="res">ScriptTime [us]</h2>
-                    </td>
-                    <?php
-                    session_start();
-                    if (!isset($_SESSION['history'])) {
-                        $_SESSION['history'] = array();
-                    }
-                    include 'table.php';
-                    ?>
-                </tr>
+            <table id="ans" border="1" width="90%">
+                <?php
+                session_start();
+                if (!isset($_SESSION['earlier'])) {
+                    $_SESSION['earlier'] = array();
+                }
+                include 'table.php';
+                ?>
             </table>
         </td>
 </table>

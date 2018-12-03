@@ -1,29 +1,30 @@
 function checkForm() {
     var error = true;
-    var x = Number(document.querySelector('#X').value.replace(",", "."));
+    var x = Number(document.querySelector('#inputX').value.replace(",", "."));
     if (isNaN(x) || x > 3 || x < -3) {
-        document.querySelector('#X').textContent = "Х должен быть числом от -3 до 3";
+        document.querySelector('#labelX').textContent = "Х должен быть числом от -3 до 3";
         error = false;
     } else {
-        document.querySelector('#X').textContent = "";
+        document.querySelector('#labelX').textContent = "";
     }
     return error;
 }
 
 
-function tosubmit(e) {
+function submit(e) {
     e.preventDefault();
     if (checkForm()) {
-        const formData = new FormData(document.querySelector('#values'));
+        const formData = new FormData(document.querySelector('#form'));
         fetch('check.php', {
             method: 'POST',
             body: formData,
         })
-            .then(ressultat => ressultat.text())
-            .then(table => document.querySelector('#ressultat').innerHTML=table);
+            .then(ans => ans.text())
+            .then(table => document.querySelector('#ans').innerHTML = table);
     }
     return false;
 }
-document.addEventListener('DOMContentLoaded', function(){
-    document.querySelector('#Button').addEventListener('click', tosubmit());
-}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#Button').addEventListener('click', submit);
+});
